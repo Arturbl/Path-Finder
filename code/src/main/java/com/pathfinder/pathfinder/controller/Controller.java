@@ -2,7 +2,9 @@ package com.pathfinder.pathfinder.controller;
 
 import com.pathfinder.pathfinder.model.Matrix;
 import com.pathfinder.pathfinder.model.Node;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +19,13 @@ public class Controller {
     }
 
     public void run() {
-        List<Node> path = getNextNode(matrix.getMainNode(), new ArrayList<>());
+        List<Node> path = getNextNode(matrix.getMainNode(), new ArrayList<>(), 0);
         path.forEach((Node node) -> {
             node.setFill(Color.ORANGE);
         });
     }
 
-    private List<Node> getNextNode(Node currentNode, List<Node> path) {
+    private List<Node> getNextNode(Node currentNode, List<Node> path, int index) {
         List<Node> neighbours = currentNode.getNeighbours();
         Node nextNode = neighbours.get(0);
         for(Node node : neighbours) {
@@ -36,7 +38,7 @@ public class Controller {
             }
         }
         path.add(nextNode);
-        return getNextNode(nextNode, path);
+        return getNextNode(nextNode, path, index++);
     }
 
 }

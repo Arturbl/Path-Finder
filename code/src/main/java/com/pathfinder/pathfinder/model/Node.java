@@ -7,13 +7,11 @@ import java.util.ArrayList;
 public class Node extends Rectangle {
 
     private final Matrix matrix;
-    private boolean visited;
     private int line;
     private int col;
 
 
     public Node(int line, int col, Matrix matrix) {
-        this.visited = false;
         this.line = line;
         this.col = col;
         this.matrix = matrix;
@@ -27,13 +25,6 @@ public class Node extends Rectangle {
         return col;
     }
 
-    public boolean isVisited() {
-        return visited;
-    }
-
-    public void setVisited(boolean visited) {
-        this.visited = visited;
-    }
 
     public boolean isEqual(Node node) {
         return line == node.getLine() && col == node.getCol();

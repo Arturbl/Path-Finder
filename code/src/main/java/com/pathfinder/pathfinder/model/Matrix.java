@@ -62,7 +62,6 @@ public class Matrix extends Parent {
             HBox hBox = (HBox) getVBox().getChildren().get(i);
             for (int j = 0; j < 10; j++) {
                 Node node = (Node) hBox.getChildren().get(j);
-                node.setVisited(false);
                 node.setFill(Color.WHITE);
             }
         }
